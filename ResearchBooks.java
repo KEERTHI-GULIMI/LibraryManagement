@@ -9,6 +9,6 @@ public class ResearchBooks extends LibraryItems  {
 
     @Override
     public void displayDetails() {
-        System.out.println("ResearchBook name is" + getTitle() + "ResearchBookId" + getItemId() + author);
+        System.out.println("ResearchBook name is " + getTitle() + "ResearchBookId is " + getItemId() + author);
     }
 }

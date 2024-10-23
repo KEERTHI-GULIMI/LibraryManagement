@@ -1,7 +1,11 @@
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException,InterruptedException {
         Library library = new Library();
+
         Novel novel1 = new Novel("The Great Gatsby ", "B001 ", "F. Scott Fitzgerald");
         Novel novel2 = new Novel("1984 ", "B002 ", "George Orwell ");
         Magazines magazines = new Magazines("Time ", "M001 ", "August 2024 ");
@@ -12,16 +16,18 @@ public class Main {
         library.addItem(magazines);
         library.addItem(researchBooks);
 
-        library.displayAllItems();
+        library.displayAllItemsAsync();
 
         Person person = new Person("keerthi ", "M001 ");
 
-        person.borrowItem(novel1);
-        person.borrowItem(novel2);
-        person.returnItem(magazines);
+        Future<String> borrowFuture1=library.borrowItemAsync(person,"B001");
 
-        person.displayItems();
 
-        library.displayAllItems();
+        Future<String> returnFuture1=library.returnItemAsync(person,"B001");
+
+        System.out.println(borrowFuture1.get());
+        System.out.println(returnFuture1.get());
+
+        library.shutdown();
     }
 }

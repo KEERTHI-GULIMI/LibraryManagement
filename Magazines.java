@@ -10,6 +10,6 @@ public class Magazines extends LibraryItems {
 
     @Override
     public void displayDetails() {
-        System.out.println("Magazine name is" + getTitle() + "MagazineId" + getItemId() + author);
+        System.out.println("Magazine name is " + getTitle() + " MagazineId is " + getItemId() + author);
     }
 }

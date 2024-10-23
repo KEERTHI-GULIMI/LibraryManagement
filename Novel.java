@@ -9,6 +9,6 @@ public class Novel extends LibraryItems {
 
     @Override
     public void displayDetails() {
-        System.out.println("Novel" + getTitle() + "NovelId" + getItemId() + author);
+        System.out.println("Novel " + getTitle() + " NovelId " + getItemId() + author);
     }
 }
